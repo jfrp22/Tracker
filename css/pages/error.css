@@ -1,0 +1,72 @@
+/* Estilos específicos para la página de error 404 */
+.error-container {
+    text-align: center;
+    padding: var(--space-xl);
+    max-width: 600px;
+    width: 90%;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.error-code {
+    font-size: clamp(6rem, 20vw, 8rem);
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: var(--space-md);
+    line-height: 1;
+    position: relative;
+    display: inline-block;
+}
+
+.error-code::after {
+    content: '';
+    position: absolute;
+    width: 80%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+    bottom: -10px;
+    left: 10%;
+    border-radius: 2px;
+}
+
+.error-message {
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+    color: var(--text-muted);
+    margin-bottom: var(--space-xl);
+    padding: 0 var(--space-md);
+}
+
+.error-illustration {
+    max-width: 300px;
+    width: 100%;
+    margin: 0 auto var(--space-xl);
+    opacity: 0.9;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.error-code span {
+    display: inline-block;
+}
+
+.error-code span:nth-child(1) { animation: float 3s ease-in-out infinite; }
+.error-code span:nth-child(2) { animation: float 3s ease-in-out infinite 0.2s; }
+.error-code span:nth-child(3) { animation: float 3s ease-in-out infinite 0.4s; }
+
+@media (max-width: 480px) {
+    .error-container {
+        padding: var(--space-lg);
+    }
+    
+    .error-message {
+        margin-bottom: var(--space-lg);
+    }
+}
