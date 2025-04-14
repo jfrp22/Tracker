@@ -1,0 +1,55 @@
+/* Estilos específicos de main.html */
+.main-header {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-md);
+    border-bottom: 1px solid #eee;
+}
+
+.main-content {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-bottom: var(--space-xl);
+}
+
+.feature {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: var(--space-lg);
+}
+
+.feature-icon {
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-right: var(--space-md);
+    margin-top: 3px;
+}
+
+.feature-text h3 {
+    color: var(--secondary);
+    margin-bottom: var(--space-xs);
+}
+
+.logout-btn {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: var(--space-md);
+}
+
+.logout-btn:hover {
+    background-color: var(--primary-dark);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .main-content {
+        padding: var(--space-md);
+    }
+}
