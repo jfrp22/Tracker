@@ -4,7 +4,7 @@
     --secondary: #3f37c9;
     --light: #f8f9fa;
     --dark: #212529;
-    --success: #4cc9f0;
+    --success: #28a745;
 }
 
 * {
@@ -79,10 +79,9 @@ nav a:hover {
 
 .thanks-card {
     background: white;
-    border-radius: 10px;
+    border-radius: 10px;    text-align: center;
     padding: 40px 30px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    text-align: center;
     margin-bottom: 30px;
 }
 
@@ -101,7 +100,8 @@ nav a:hover {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -110,8 +110,8 @@ nav a:hover {
 }
 
 .btn:hover {
-    background-color: var(--secondary);
-}
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);}
 
 footer {
     text-align: center;
