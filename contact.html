@@ -5,12 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto - Tracker</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/components/nav.css">
-    <link rel="stylesheet" href="css/components/buttons.css">
-    <link rel="stylesheet" href="css/components/forms.css">
-    <link rel="stylesheet" href="css/components/cards.css">
-    <link rel="stylesheet" href="css/pages/contact.css">
+    <link rel="stylesheet" href="css/contact.css">
 </head>
 <body>
     <div class="container">
@@ -18,7 +13,7 @@
             <h1><i class="fas fa-envelope"></i> Contacto</h1>
         </header>
         
-        <nav class="nav-primary">
+        <nav>
             <a href="main.html"><i class="fas fa-home"></i> Inicio</a>
             <a href="gps.html"><i class="fas fa-map-marked-alt"></i> Tracker GPS</a>
             <a href="config.html"><i class="fas fa-network-wired"></i> Configuración</a>
@@ -27,10 +22,10 @@
             <a href="contact.html" class="active"><i class="fas fa-envelope"></i> Contacto</a>
         </nav>
         
-        <div class="card">
+        <div class="about-card">
             <form class="contact-form" action="https://formsubmit.co/esp8266tg@gmail.com" method="POST">
                 <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_next" value="https://jfrp22.github.io/Tracker/gracias.html">
+                <input type="hidden" name="_next" value="https://jfrp22.github.io/m-ltiples-rutas/gracias.html">
                 
                 <h2><i class="fas fa-paper-plane"></i> Contacto</h2>
                 
@@ -43,7 +38,7 @@
                 <div class="form-group">
                     <textarea name="message" placeholder="Escribe tu mensaje aquí..." required></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">
+                <button type="submit">
                     <i class="fas fa-paper-plane"></i> Enviar Mensaje
                 </button>
             </form>
@@ -53,8 +48,5 @@
             <p>© 2025 Tracker | Versión 1.0</p>
         </footer>
     </div>
-
-    <script src="js/modules/form-handler.js"></script>
-    <script src="js/modules/common.js"></script>
 </body>
 </html>
