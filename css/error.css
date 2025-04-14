@@ -1,0 +1,128 @@
+/* Reset y estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #212529;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: radial-gradient(circle at 10% 20%, rgba(67, 97, 238, 0.1) 0%, rgba(248, 249, 250, 1) 90%);
+}
+
+/* Contenedor principal */
+.error-container {
+    text-align: center;
+    padding: 2rem;
+    max-width: 600px;
+    width: 90%;
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* Estilos del código de error */
+.error-code {
+    font-size: clamp(6rem, 20vw, 8rem);
+    font-weight: 800;
+    color: #4361ee;
+    margin-bottom: 1rem;
+    line-height: 1;
+    position: relative;
+    display: inline-block;
+}
+
+.error-code::after {
+    content: '';
+    position: absolute;
+    width: 80%;
+    height: 4px;
+    background: linear-gradient(90deg, #4361ee, #3a0ca3);
+    bottom: -10px;
+    left: 10%;
+    border-radius: 2px;
+}
+
+/* Mensaje de error */
+.error-message {
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+    color: #495057;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+}
+
+/* Botón de volver */
+.home-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: #4361ee;
+    color: white;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+    border: 2px solid transparent;
+}
+
+.home-button:hover {
+    background-color: #3a0ca3;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(67, 97, 238, 0.4);
+}
+
+.home-button:active {
+    transform: translateY(0);
+}
+
+/* Ilustración opcional */
+.error-illustration {
+    max-width: 300px;
+    width: 100%;
+    margin: 0 auto 2rem;
+    opacity: 0.9;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Efecto de movimiento para el 404 */
+.error-code span {
+    display: inline-block;
+}
+
+.error-code span:nth-child(1) { animation: float 3s ease-in-out infinite; }
+.error-code span:nth-child(2) { animation: float 3s ease-in-out infinite 0.2s; }
+.error-code span:nth-child(3) { animation: float 3s ease-in-out infinite 0.4s; }
+
+/* Responsive para móviles pequeńos */
+@media (max-width: 480px) {
+    .error-container {
+        padding: 1.5rem;
+    }
+    
+    .home-button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .error-message {
+        margin-bottom: 1.5rem;
+    }
+}
