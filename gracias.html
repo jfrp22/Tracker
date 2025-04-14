@@ -3,39 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gracias por contactarnos - Tracker</title>
+    <title>Página no encontrada</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/gracias.css">
+    <link rel="stylesheet" href="css/error.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1><i class="fas fa-envelope"></i> Contacto</h1>
-        </header>
+    <div class="error-container">
+        <!-- Ilustración SVG integrada (opcional) -->
+        <svg class="error-illustration" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="100" cy="100" r="90" fill="none" stroke="#4361ee" stroke-width="2" stroke-dasharray="5,5"/>
+            <path d="M70,70 L130,130 M70,130 L130,70" stroke="#f72585" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="100" cy="100" r="30" fill="none" stroke="#4361ee" stroke-width="2"/>
+        </svg>
         
-        <nav>
-            <a href="main.html"><i class="fas fa-home"></i> Inicio</a>
-            <a href="gps.html"><i class="fas fa-map-marked-alt"></i> Tracker GPS</a>
-            <a href="config.html"><i class="fas fa-network-wired"></i> Configuración</a>
-            <a href="control.html"><i class="fas fa-cog"></i> CMA</a>
-            <a href="about.html"><i class="fas fa-info-circle"></i> Acerca de</a>
-            <a href="contact.html"><i class="fas fa-envelope"></i> Contacto</a>
-        </nav>
-        
-        <div class="thanks-card">
-            <div class="thanks-icon">
-                <i class="fas fa-check-circle"></i>
-            </div>
-            <h2>ˇMensaje Enviado con Éxito!</h2>
-            <p>Gracias por contactarnos. Hemos recibido tu mensaje y nos pondremos en contacto contigo lo antes posible.</p>
-            <a href="main.html" class="btn">
-                <i class="fas fa-home"></i> Volver al Inicio
-            </a>
-        </div>
-        
-        <footer>
-            <p>© 2025 Tracker | Versión 1.0</p>
-        </footer>
+        <h1 class="error-code">
+            <span>4</span><span>0</span><span>4</span>
+        </h1>
+        <p class="error-message">La página que buscas no existe o ha sido movida.</p>
+        <a href="main.html" class="home-button">
+            <i class="fas fa-home"></i> Volver al inicio
+        </a>
     </div>
 </body>
 </html>
