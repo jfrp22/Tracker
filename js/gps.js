@@ -242,4 +242,4 @@ document.addEventListener('DOMContentLoaded', function() {
         document.addEventListener('DOMContentLoaded', () => {
     // Inicialización
     initMap();
-});
+})};
