@@ -175,7 +175,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function initMap() {
         // Esta función parece fuera de contexto aquí (¿quizás sobrante de gps.js?)
         // La dejo comentada por si acaso
-        // map = L.map('map').setView([10.4806, -66.9036], 10);
-        // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+        map = L.map('map').setView([10.4806, -66.9036], 10);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
     }
 });
