@@ -3,9 +3,9 @@
     --secondary: #3f37c9;
     --light: #f8f9fa;
     --dark: #212529;
-    --success: #4cc9f0;
-    --danger: #f72585;
-    --warning: #f8961e;
+    --success: #28a745;  /* Cambiado a verde estándar */
+    --danger: #dc3545;   /* Cambiado a rojo estándar */
+    --warning: #ffc107;  /* Cambiado a amarillo estándar */
 }
 
 * {
@@ -106,27 +106,27 @@ nav {
             border-radius: 20px;
             font-size: 0.9rem;
             margin-top: 5px;
-            background-color: #f8f9fa;
+            background-color: var(--light);
             border: 1px solid #ddd;
         }
         
-        .connected {
-            background-color: var(--success) !important;
-            color: white !important;
-            border-color: var(--success) !important;
-        }
-        
-        .disconnected {
-            background-color: var(--danger) !important;
-            color: white !important;
-            border-color: var(--danger) !important;
-        }
-        
-        .reconnecting {
-            background-color: var(--warning) !important;
-            color: white !important;
-            border-color: var(--warning) !important;
-        }
+.connected {
+    background-color: var(--success) !important;
+    color: white !important;
+    border-color: var(--success) !important;
+}
+
+.disconnected {
+    background-color: var(--danger) !important;
+    color: white !important;
+    border-color: var(--danger) !important;
+}
+
+.reconnecting {
+    background-color: var(--warning) !important;
+    color: white !important;
+    border-color: var(--warning) !important;
+}
 
         .device-controls {
             display: flex;
@@ -147,11 +147,12 @@ nav {
             display: flex;
             align-items: center;
             gap: 6px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         
         .device-btn:hover {
-            background: var(--secondary);
-            transform: translateY(-1px);
+            transform: translateY(-2px); 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
         }
         
         .device-btn.active {
