@@ -5,18 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acerca de - Tracker</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/components/nav.css">
-    <link rel="stylesheet" href="css/components/cards.css">
-    <link rel="stylesheet" href="css/pages/about.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <div class="container">
         <header>
             <h1><i class="fas fa-info-circle"></i> Acerca del Proyecto</h1>
         </header>
-        
-        <nav class="nav-primary">
+        <nav>
             <a href="main.html"><i class="fas fa-home"></i> Inicio</a>
             <a href="gps.html"><i class="fas fa-map-marked-alt"></i> Tracker GPS</a>
             <a href="config.html"><i class="fas fa-network-wired"></i> Configuración</a>
@@ -24,25 +20,24 @@
             <a href="about.html" class="active"><i class="fas fa-info-circle"></i> Acerca de</a>
             <a href="contact.html"><i class="fas fa-envelope"></i> Contacto</a>
         </nav>
-        
-        <div class="card">
-            <div class="about-feature">
-                <div class="about-feature-icon">
+        <div class="about-card">
+            <div class="feature">
+                <div class="feature-icon">
                     <i class="fas fa-satellite"></i>
                 </div>
-                <div class="about-feature-text">
+                <div class="feature-text">
                     <h3>Sistema de Tracker GPS</h3>
                     <p>Proyecto desarrollado con ESP8266 y módulo GPS NEO-6M para seguimiento en tiempo real mediante MQTT y visualización en mapa interactivo.</p>
                 </div>
             </div>
             
-            <div class="about-feature">
-                <div class="about-feature-icon">
+            <div class="feature">
+                <div class="feature-icon">
                     <i class="fas fa-code"></i>
                 </div>
-                <div class="about-feature-text">
+                <div class="feature-text">
                     <h3>Tecnologías Utilizadas</h3>
-                    <ul>
+                    <ul style="margin-left: 20px;">
                         <li>ESP8266 con firmware Arduino</li>
                         <li>Protocolo MQTT (broker público Mosquitto)</li>
                         <li>Frontend con HTML5, CSS3 y Leaflet.js</li>
@@ -50,22 +45,19 @@
                 </div>
             </div>
             
-            <div class="about-feature">
-                <div class="about-feature-icon">
+            <div class="feature">
+                <div class="feature-icon">
                     <i class="fas fa-user-tie"></i>
                 </div>
-                <div class="about-feature-text">
+                <div class="feature-text">
                     <h3>Desarrollador</h3>
                     <p>Proyecto creado por Jaime Ramirez como parte de un sistema IoT para seguimiento de dispositivos.</p>
                 </div>
             </div>
         </div>
-        
         <footer>
             <p>© 2025 Tracker | Versión 1.0</p>
         </footer>
     </div>
-
-    <script src="js/modules/common.js"></script>
 </body>
 </html>
