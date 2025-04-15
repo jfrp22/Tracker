@@ -144,8 +144,7 @@ footer {
 
 /* Tablet */
 @media (max-width: 768px) {
-    nav { padding: 10px; }
-    
+    nav { padding: 10px; }    
     .thanks-card {
         padding: 30px 20px;
     }
@@ -158,4 +157,11 @@ footer {
 /* Móvil */
 @media (max-width: 480px) {
     nav a { width: 100%; justify-content: center; }
+        .thanks-card {
+        padding: 30px 20px;
+    }
+    
+    .thanks-icon {
+        font-size: 3rem;
+    }
 }
