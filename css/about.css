@@ -1,5 +1,4 @@
-/* css/styles.css */
-:root {
+root {
     --primary: #4361ee;
     --secondary: #3f37c9;
     --light: #f8f9fa;
@@ -74,9 +73,13 @@ nav a i {
 }
 
 .feature {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.feature:hover {
+    background-color: var(--light);
 }
 
 .feature-icon {
@@ -106,5 +109,6 @@ footer {
     
     .about-card {
         padding: 20px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
 }
