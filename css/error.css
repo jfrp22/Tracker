@@ -81,7 +81,7 @@ body {
 .home-button:hover {
     background-color: #3a0ca3;
     transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(67, 97, 238, 0.4);
+    box-shadow: 0 6px 12px rgba(67, 97, 238, 0.3);
 }
 
 .home-button:active {
