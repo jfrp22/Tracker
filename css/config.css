@@ -178,12 +178,18 @@ body {
             cursor: pointer;
             font-size: 14px;
             font-weight: 500;
-            transition: all 0.2s;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             display: inline-flex;
             align-items: center;
             gap: 6px;
         }
-        
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
         .btn-primary {
             background-color: var(--primary);
             color: white;
@@ -231,7 +237,7 @@ body {
         .modal-content {
             background-color: white;
             border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
             width: 90%;
             max-width: 500px;
             transform: translateY(-10px);
