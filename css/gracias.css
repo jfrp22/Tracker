@@ -41,22 +41,22 @@ header {
 
 h1 {
     color: var(--primary);
-    margin-bottom: 15px;
+    margin-bottom: 1.2rem;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
-    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-size: clamp(1.8rem, 4vw, 2.3rem);
 }
 
 nav {
     background: var(--primary);
-    padding: 12px;
+    padding: 12px 15px;
     border-radius: 8px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px 20px;
+    gap: 12px;
     margin-bottom: 30px;
 }
 
@@ -64,12 +64,13 @@ nav a {
     color: white;
     text-decoration: none;
     font-weight: 500;
+    font-size: 0.95rem;       /* Tamaño consistente */
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 8px 15px;
+    gap: 12px;
+    padding: 8px 16px;
     border-radius: 5px;
-    transition: all 0.3s;
+    transition: all 0.25s ease;
 }
 
 nav a:hover {
@@ -77,12 +78,12 @@ nav a:hover {
     transform: translateY(-2px);
 }
 
-.thanks-card {
+.thanks-card {   
     background: white;
     border-radius: 10px;    text-align: center;
-    padding: 40px 30px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    margin-bottom: 30px;
+    padding: 20px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    margin-bottom: 20px;
 }
 
 .thanks-icon {
@@ -92,7 +93,7 @@ nav a:hover {
     animation: bounce 1s infinite alternate;
 }
 
-.btn {
+. {
     background-color: var(--primary);
     color: white;
     border: none;
@@ -125,11 +126,9 @@ footer {
     to { transform: translateY(-10px); }
 }
 
-@media (max-width: 600px) {
-    nav a {
-        padding: 8px 12px;
-        font-size: 0.9rem;
-    }
+/* Tablet */
+@media (max-width: 768px) {
+    nav { padding: 10px; }
     
     .thanks-card {
         padding: 30px 20px;
@@ -138,4 +137,9 @@ footer {
     .thanks-icon {
         font-size: 3rem;
     }
+}
+
+/* Móvil */
+@media (max-width: 480px) {
+    nav a { width: 100%; justify-content: center; }
 }
