@@ -37,7 +37,7 @@ body {
     overflow: hidden;
 }
 
-        .login-container::before {
+.login-container::before {
             content: '';
             position: absolute;
             top: -50%;
@@ -53,10 +53,10 @@ body {
             pointer-events: none;
         }
 
-        h1 {
+        h1 {            
             color: #2b2d42;
-            margin-bottom: 30px;
-            font-size: clamp(1.6rem, 5vw, 2.1rem);
+            margin-bottom: 1.2rem;
+            font-size: clamp(1.8rem, 4vw, 2.3rem);
             font-weight: 600;
             letter-spacing: -0.5px;
             position: relative;
@@ -103,23 +103,29 @@ body {
         }
 
         button {
+   padding: 10px 18px;
+    font-size: 1rem;
+    border-radius: 6px;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            
             background: linear-gradient(135deg, #4361ee, #3f37c9);
             color: white;
             border: none;
-            padding: 16px;
-            border-radius: 10px;
-            font-size: 16px;
+            padding: 10px 18px;
+            border-radius: 6px;
+            font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.25s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             letter-spacing: 0.5px;
         }
 
         button:hover {
             background: linear-gradient(135deg, #3a0ca3, #3f37c9);
             transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
         }
 
         button:active {
@@ -151,15 +157,14 @@ body {
             animation: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
         }
 
-        /* Estilos para móviles */
         @media screen and (max-width: 480px) {
             .login-container {
                 padding: 30px 25px;
                 border-radius: 14px;
                 max-width: 90%;
             }
-            
             input, button {
+                width: 100%;
                 padding: 14px;
                 font-size: 15px;
             }
@@ -170,18 +175,5 @@ body {
             
             form {
                 gap: 20px;
-            }
-        }
-
-        /* Estilos para pantallas muy pequeñas */
-        @media screen and (max-width: 320px) {
-            .login-container {
-                padding: 25px 20px;
-                border-radius: 12px;
-            }
-            
-            input, button {
-                padding: 12px;
-                font-size: 14px;
             }
         }
