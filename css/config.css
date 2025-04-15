@@ -88,32 +88,49 @@ body {
             justify-content: center;
             gap: 8px;
         }
-        
-        .connected {
-            background-color: rgba(40, 167, 69, 0.1);
-            color: var(--success);
-            border-left: 3px solid var(--success);
-        }
-        
-        .disconnected {
-            background-color: rgba(220, 53, 69, 0.1);
-            color: var(--danger);
-            border-left: 3px solid var(--danger);
-        }
-        
-        .connecting {
-            background-color: rgba(255, 193, 7, 0.1);
-            color: var(--warning);
-            border-left: 3px solid var(--warning);
-        }
-        
+.connected {
+    background-color: var(--success) !important;
+    color: white !important;
+    border-color: var(--success) !important;
+}
+
+.disconnected {
+    background-color: var(--danger) !important;
+    color: white !important;
+    border-color: var(--danger) !important;
+}
+
+.connecting {
+    background-color: var(--warning) !important;
+    color: white !important;
+    border-color: var(--warning) !important;
+}
+
         .table-container {
             overflow-x: auto;
             margin-bottom: 20px;
             border-radius: 6px;
             border: 1px solid #eee;
         }
-        
+
+.connected {
+    background-color: var(--success) !important;
+    color: white !important;
+    border-color: var(--success) !important;
+}
+
+.disconnected {
+    background-color: var(--danger) !important;
+    color: white !important;
+    border-color: var(--danger) !important;
+}
+
+.reconnecting {
+    background-color: var(--warning) !important;
+    color: white !important;
+    border-color: var(--warning) !important;
+}
+
         table {
             width: 100%;
             border-collapse: collapse;
