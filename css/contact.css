@@ -45,7 +45,6 @@ header {
             flex-wrap: wrap;
             justify-content: center;
             gap: 10px 20px;
-            margin-bottom: 30px;
         }
         
         nav a {
@@ -55,7 +54,7 @@ header {
             display: flex;
             align-items: center;
             gap: 8px;
-            padding: 8px 15px;
+            padding: 5px 10px;
             border-radius: 5px;
             transition: all 0.3s;
         }
