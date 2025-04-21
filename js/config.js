@@ -2,7 +2,7 @@
 // Variables globales
 const devices = {};
 let currentEditingNode = null;
-const client = mqtt.connect("wss://broker.emqx.io:8081/mqtt", {
+const client = mqtt.connect('wss://test.mosquitto.org:8081/mqtt', {
     clientId: 'webclient_' + Math.random().toString(16).substr(2, 8),
     keepalive: 60,
     clean: true,
