@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Configuración MQTT
     const gpsTopic = "iotlab/gps/data";
     const macListTopic = "iotlab/nodes/status";
-    const mqttBrokerUrl = "wss://test.mosquitto.org:8081/mqtt";
+    const mqttBrokerUrl = "wss://broker.emqx.io:8081/mqtt";
     
     // Objeto para almacenar los dispositivos y sus marcadores
     const devices = {};
