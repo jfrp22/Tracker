@@ -15,38 +15,9 @@ const nodeRoleSelect = document.getElementById('node-role');
 const pairingGroup = document.getElementById('pairing-group');
 const pairDeviceSelect = document.getElementById('pair-device');
 
-// Lista de brokers disponibles
-const availableBrokers = [
-    {
-        url: "wss://test.mosquitto.org:8081/mqtt",
-        name: "Mosquitto Público 1"
-    },
-    {
-        url: "wss://broker.emqx.io:8084/mqtt",
-        name: "EMQX Público"
-    },
-    {
-        url: "ws://localhost:9001",
-        name: "Broker Local"
-    }
-];
-
-// Configuración de temas MQTT
-const mqttTopics = {
-    discovery: "iotlab/discovery",
-    nodesStatus: "iotlab/nodes/status",
-    nodesConfig: "iotlab/nodes/config",
-    pairingResponse: "iotlab/pairing/response",
-    unpairRequest: "iotlab/pairing/unpair_request",
-    unpairConfirm: "iotlab/pairing/unpair_confirm"
-};
-
-// Configuración de tiempo
-const timeouts = {
-    offlineThreshold: 120000, // 2 minutos
-    brokerSwitchDelay: 5000,  // 5 segundos
-    statusCheckInterval: 30000 // 30 segundos
-};
+// ==============================================
+// Funciones principales
+// ==============================================
 
 // Función para solicitar desemparejamiento
 function requestUnpair(nodeMac) {
@@ -126,7 +97,7 @@ function handleUnpairRequest(message) {
     }
 }
 
-// Función para conectar al broker
+// Función para conectar al broker MQTT
 function connectToBroker(index) {
     // Limpiar conexión anterior si existe
     if (client) {
@@ -145,7 +116,7 @@ function connectToBroker(index) {
         reconnectPeriod: 1000
     });
     
-    // Manejo de conexión MQTT
+    // Manejo de eventos MQTT
     client.on('connect', () => {
         console.log(`Conectado al broker ${broker.name}`);
         updateConnectionStatus('connected', `Conectado a ${broker.name}`);
@@ -347,4 +318,136 @@ function updateTable() {
             </span></td>
             <td><span class="badge ${device.status === 'active' ? 'badge-online' : 'badge-offline'}">
                 ${device.status === 'active' ? 'Online' : 'Offline'}
-           
+            </span></td>
+            <td>${device.paired_with || 'Ninguno'}</td>
+            <td>${device.ip}</td>
+            <td>${device.lastSeen.toLocaleTimeString()}</td>
+            <td>
+                <button class="btn btn-primary btn-sm" onclick="showConfigModal('${mac}')">
+                    <i class="fas fa-cog"></i> Configurar
+                </button>
+                ${device.paired_with ? `
+                <button class="btn btn-danger btn-sm" onclick="requestUnpair('${mac}')" style="margin-left: 5px;">
+                    <i class="fas fa-unlink"></i> Desemparejar
+                </button>
+                ` : ''}
+            </td>
+        `;
+        
+        nodesBody.appendChild(row);
+    });
+}
+
+// Mostrar modal de configuración
+function showConfigModal(nodeMac) {
+    currentEditingNode = nodeMac;
+    const device = devices[nodeMac];
+    
+    modalTitle.textContent = `Configurar Nodo ${nodeMac}`;
+    nodeRoleSelect.value = device.role || 'UNCONFIGURED';
+    
+    // Actualizar opciones de emparejamiento
+    updatePairingOptions();
+    
+    configModal.classList.add('show');
+}
+
+// Ocultar modal
+function hideModal() {
+    configModal.classList.remove('show');
+    currentEditingNode = null;
+}
+
+// Actualizar opciones de emparejamiento
+function updatePairingOptions() {
+    const selectedRole = nodeRoleSelect.value;
+    pairDeviceSelect.innerHTML = '';
+    pairingGroup.style.display = 'none';
+    
+    // Solo mostrar opciones de emparejamiento para esclavos
+    if (selectedRole === 'SLAVE') {
+        pairingGroup.style.display = 'block';
+        
+        // Obtener maestros disponibles
+        const availableMasters = Object.entries(devices)
+            .filter(([mac, device]) => 
+                device.role === 'MASTER' && 
+                device.status === 'active' &&
+                mac !== currentEditingNode
+            )
+            .map(([mac]) => mac);
+        
+        if (availableMasters.length > 0) {
+            availableMasters.forEach(mac => {
+                const option = document.createElement('option');
+                option.value = mac;
+                option.textContent = mac;
+                pairDeviceSelect.appendChild(option);
+            });
+            
+            // Seleccionar maestro actual si existe
+            if (devices[currentEditingNode]?.paired_with) {
+                pairDeviceSelect.value = devices[currentEditingNode].paired_with;
+            }
+        } else {
+            const option = document.createElement('option');
+            option.value = '';
+            option.textContent = 'No hay maestros disponibles';
+            option.disabled = true;
+            pairDeviceSelect.appendChild(option);
+        }
+    }
+}
+
+// Guardar configuración del nodo
+function saveNodeConfig() {
+    if (!currentEditingNode) return;
+    
+    const role = nodeRoleSelect.value;
+    const pairWith = role === 'SLAVE' && pairDeviceSelect.value ? pairDeviceSelect.value : '';
+    
+    const config = {
+        target: currentEditingNode,
+        role: role
+    };
+    
+    if (pairWith) {
+        config.pair_with = pairWith;
+    }
+    
+    console.log("Enviando configuración:", config);
+    client.publish(mqttTopics.nodesConfig, JSON.stringify(config), { qos: 1 });
+    
+    hideModal();
+}
+
+// Función para descubrir nodos
+function discoverNodes() {
+    client.publish(mqttTopics.discovery, 'DISCOVER_NODES', { qos: 1 });
+    alert("Solicitud de descubrimiento enviada");
+}
+
+// Inicializar la aplicación
+window.addEventListener('DOMContentLoaded', () => {
+    // Conectar al primer broker al cargar la página
+    connectToBroker(0);
+    
+    updateTable();
+    
+    // Verificar nodos offline cada 30 segundos
+    setInterval(() => {
+        const now = new Date();
+        let needUpdate = false;
+        
+        Object.keys(devices).forEach(mac => {
+            if ((now - new Date(devices[mac].lastSeen)) > timeouts.offlineThreshold) {
+                if (devices[mac].status !== 'offline') {
+                    devices[mac].status = 'offline';
+                    needUpdate = true;
+                }
+            }
+        });
+        
+        if (needUpdate) updateTable();
+    }, timeouts.statusCheckInterval);
+});
