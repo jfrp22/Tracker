@@ -132,7 +132,7 @@ RESET MEJORADO Y BASE
         --color-text: var(--gray-100);
         --color-border: var(--gray-700);
         --color-card: var(--gray-800);
-        --color-primary: var(--primary-400);
+        --color-primary: var(--primary-500);
         --color-primary-hover: var(--primary-300);
     }
 }
