@@ -11,7 +11,7 @@ RESET MEJORADO Y BASE
     /* ==============================================
     VARIABLES DEL SISTEMA DE DISEÑO
     ============================================== */
-    /* Colores principales */
+    /* Colores primarios */
     --primary-50: #e8eaf6;
     --primary-100: #c5cae9;
     --primary-200: #9fa8da;
@@ -54,20 +54,14 @@ RESET MEJORADO Y BASE
     --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     
     /* Tipografía */
     --font-sans: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-    --text-xs: 0.75rem;    /* 12px */
     --text-sm: 0.875rem;  /* 14px */
     --text-base: 1rem;    /* 16px */
     --text-lg: 1.125rem;  /* 18px */
     --text-xl: 1.25rem;   /* 20px */
     --text-2xl: 1.5rem;   /* 24px */
-    --text-3xl: 1.875rem; /* 30px */
-    --text-4xl: 2.25rem;  /* 36px */
-    --text-5xl: 3rem;     /* 48px */
     
     /* Espaciado */
     --space-1: 0.25rem;   /* 4px */
@@ -77,56 +71,34 @@ RESET MEJORADO Y BASE
     --space-5: 1.25rem;   /* 20px */
     --space-6: 1.5rem;    /* 24px */
     --space-8: 2rem;      /* 32px */
-    --space-10: 2.5rem;   /* 40px */
-    --space-12: 3rem;     /* 48px */
-    --space-16: 4rem;     /* 64px */
-    --space-20: 5rem;     /* 80px */
-    --space-24: 6rem;     /* 96px */
-    --space-32: 8rem;     /* 128px */
     
     /* Bordes */
     --radius-sm: 0.125rem; /* 2px */
     --radius: 0.25rem;     /* 4px */
     --radius-md: 0.375rem; /* 6px */
     --radius-lg: 0.5rem;   /* 8px */
-    --radius-xl: 0.75rem;  /* 12px */
-    --radius-2xl: 1rem;    /* 16px */
-    --radius-3xl: 1.5rem;  /* 24px */
-    --radius-full: 9999px;
     
     /* Transiciones */
     --transition-fast: 150ms;
     --transition-normal: 250ms;
-    --transition-slow: 400ms;
-    --transition-bounce: cubic-bezier(0.68, -0.6, 0.32, 1.6);
     
-    /* Variables para modo claro */
+    /* Variables para modo oscuro */
     --color-bg: var(--white);
     --color-text: var(--gray-900);
     --color-border: var(--gray-200);
     --color-card: var(--white);
     --color-primary: var(--primary-500);
     --color-primary-hover: var(--primary-600);
-    --color-secondary: var(--secondary-500);
-    --color-secondary-hover: var(--secondary-600);
-    --color-form-bg: var(--white);
-    --color-form-border: var(--gray-300);
-    --color-footer-text: var(--gray-600);
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --color-bg: var(--gray-700);
+        --color-bg: var(--gray-500);
         --color-text: var(--gray-900);
-        --color-border: var(--gray-700);
-        --color-card: var(--gray-500);
+        --color-border: var(--gray-900);
+        --color-card: var(--gray-600);
         --color-primary: var(--primary-500);
         --color-primary-hover: var(--primary-300);
-        --color-secondary: var(--secondary-400);
-        --color-secondary-hover: var(--secondary-300);
-        --color-form-bg: var(--gray-800);
-        --color-form-border: var(--gray-600);
-        --color-footer-text: var(--gray-400);
     }
 }
 
@@ -151,59 +123,18 @@ body {
     transition: background-color var(--transition-normal) ease;
 }
 
-img,
-picture,
-video,
-canvas,
-svg {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
-input,
-button,
-textarea,
-select {
-    font: inherit;
-    color: inherit;
-}
-
-button {
-    cursor: pointer;
-}
-
-a {
-    color: var(--color-primary);
-    text-decoration: none;
-    transition: color var(--transition-fast) ease;
-}
-
-a:hover {
-    color: var(--color-primary-hover);
-}
-
 /* ==============================================
-LAYOUT
+COMPONENTES
 ============================================== */
 .container {
     max-width: 50rem; /* 800px */
     margin: 0 auto;
-    background: var(--color-card);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-md);
-    padding: var(--space-5);
-    transition: all var(--transition-normal) ease;
 }
 
-/* ==============================================
-CABECERA
-============================================== */
+/* HEADER */
 header {
     text-align: center;
     margin-bottom: var(--space-6);
-    padding-bottom: var(--space-5);
-    border-bottom: 1px solid var(--color-border);
 }
 
 h1 {
@@ -213,13 +144,11 @@ h1 {
     justify-content: center;
     gap: var(--space-3);
     margin-bottom: var(--space-3);
-    font-size: clamp(var(--text-2xl), 4vw, var(--text-3xl));
+    font-size: var(--text-2xl);
     font-weight: 600;
 }
 
-/* ==============================================
-NAVEGACIÓN
-============================================== */
+/* NAVEGACIÓN */
 nav {
     background: var(--color-primary);
     padding: var(--space-3);
@@ -227,10 +156,9 @@ nav {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: var(--space-2) var(--space-4);
+    gap: var(--space-2) var(--space-5);
     margin-bottom: var(--space-6);
     transition: all var(--transition-normal) ease;
-    box-shadow: var(--shadow-sm);
 }
 
 nav a {
@@ -246,24 +174,18 @@ nav a {
     font-size: var(--text-sm);
 }
 
-nav a:hover,
-nav a:focus-visible,
-nav a.active {
+nav a:hover, nav a.active {
     background: var(--color-primary-hover);
     transform: translateY(-1px);
-    box-shadow: var(--shadow-sm);
-    outline: none;
 }
 
 nav a i {
     font-size: var(--text-base);
 }
 
-/* ==============================================
-TARJETA ABOUT
-============================================== */
-.about-card {
-    background-color: var(--color-card);
+/* TARJETA DE CONTACTO */
+.contact-card {
+    background: var(--color-card);
     border-radius: var(--radius-lg);
     padding: var(--space-6);
     box-shadow: var(--shadow-md);
@@ -272,9 +194,10 @@ TARJETA ABOUT
     transition: all var(--transition-normal) ease;
 }
 
-/* ==============================================
-FORMULARIO DE CONTACTO
-============================================== */
+.contact-form {
+    width: 100%;
+}
+
 .contact-form h2 {
     color: var(--color-primary);
     margin-bottom: var(--space-5);
@@ -284,8 +207,39 @@ FORMULARIO DE CONTACTO
     font-size: var(--text-xl);
 }
 
+/* FORMULARIO */
 .form-group {
-    margin-bottom: var(--space-5);
+    margin-bottom: var(--space-4);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: var(--space-3) var(--space-4); /* 12px 16px */
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    font-size: var(--text-base);
+    background-color: var(--color-card);
+    color: var(--color-text);
+    transition: all var(--transition-fast) ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+}
+
+.form-group textarea {
+    min-height: 9.375rem; /* 150px */
+    resize: vertical;
+}
+/* Placeholder styling */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--gray-500);
+    opacity: 1;
 }
 
 .form-group label {
@@ -298,12 +252,12 @@ FORMULARIO DE CONTACTO
 
 .form-control {
     width: 100%;
-    padding: var(--space-2) var(--space-3);
+    padding: var(--space-3);
     border: 1px solid var(--color-border);
     border-radius: var(--radius);
-    font-size: var(--text-sm);
+    font-size: var(--text-base);
     transition: all var(--transition-fast) ease;
-    background-color: var(--color-form-bg);
+    background-color: var(--color-bg);
     color: var(--color-text);
 }
 
@@ -318,15 +272,13 @@ textarea.form-control {
     resize: vertical;
 }
 
-/* ==============================================
-BOTONES
-============================================== */
+/* BOTONES */
 .btn {
-    padding: var(--space-2) var(--space-3);
+    padding: var(--space-3) var(--space-5);
     border-radius: var(--radius);
     border: none;
     cursor: pointer;
-    font-size: var(--text-sm);
+    font-size: var(--text-base);
     font-weight: 500;
     transition: all var(--transition-fast) ease;
     display: inline-flex;
@@ -334,7 +286,7 @@ BOTONES
     gap: var(--space-2);
 }
 
-.btn:focus-visible {
+.btn:focus {
     outline: 2px solid var(--primary-300);
     outline-offset: 2px;
 }
@@ -344,26 +296,17 @@ BOTONES
     color: var(--white);
 }
 
-.btn-primary:hover,
-.btn-primary:focus-visible {
+.btn-primary:hover {
     background-color: var(--color-primary-hover);
     transform: translateY(-1px);
     box-shadow: var(--shadow-sm);
 }
 
-.btn-block {
-    width: 100%;
-    justify-content: center;
-}
-
-/* ==============================================
-PIE DE PÁGINA
-============================================== */
+/* FOOTER */
 footer {
     text-align: center;
-    margin-top: var(--space-6);
-    color: var(--color-footer-text);
-    padding: var(--space-4) 0;
+    margin-top: var(--space-8);
+    color: var(--gray-600);
     font-size: var(--text-sm);
 }
 
@@ -372,37 +315,30 @@ MEDIA QUERIES
 ============================================== */
 @media (max-width: 48em) { /* 768px */
     .container {
+        padding: 0;
+    }
+    
+    .contact-card {
         padding: var(--space-4);
-    }
-    
-    .about-card {
-        padding: var(--space-5);
-    }
-    
-    h1 {
-        font-size: var(--text-xl);
     }
 }
 
-@media (max-width: 37.5em) { /* 600px */
-    body {
-        padding: var(--space-4);
-    }
-    
+@media (max-width: 30em) { /* 480px */
     nav {
-        flex-direction: column;
-        align-items: stretch;
         gap: var(--space-2);
+        padding: var(--space-3);
     }
     
     nav a {
-        width: 100%;
-        justify-content: center;
+        padding: var(--space-1) var(--space-2);
         font-size: var(--text-xs);
     }
     
-    .form-group input,
-    .form-group textarea {
+    .form-control {
         padding: var(--space-2);
+    }
+    
+    .btn {
+        padding: var(--space-2) var(--space-4);
     }
 }
