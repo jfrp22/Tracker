@@ -131,9 +131,9 @@ RESET MEJORADO Y BASE
 @media (prefers-color-scheme: dark) {
     :root {
         --color-bg: var(--gray-900);
-        --color-text: var(--gray-100);
+        --color-text: var(--gray-900);
         --color-border: var(--gray-700);
-        --color-card: var(--gray-800);
+        --color-card: var(--gray-500);
         --color-primary: var(--primary-400);
         --color-primary-hover: var(--primary-300);
         --color-feature-icon: var(--primary-300);
